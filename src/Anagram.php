@@ -26,6 +26,12 @@
 			$this->anagrams = $anagrams;
 		}
 
+		function sortUserWord() {
+			$split = str_split($this->word);
+			sort($split, SORT_NATURAL | SORT_FLAG_CASE);
+			return $split;
+		}
+
 		// function checkForAnagrams($word){
 		// $grams = $new_anagram->getAnagram();
 		//
