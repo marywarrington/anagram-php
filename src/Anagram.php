@@ -26,11 +26,21 @@
 			$this->anagrams = $anagrams;
 		}
 
-		function sortUserWord() {
-			$split = str_split($this->word);
+		function formatWord($word) {
+			$split = str_split($word);
 			sort($split, SORT_NATURAL | SORT_FLAG_CASE);
-			return $split;
+			$imploded = implode($split);
+			return $imploded;
 		}
+
+
+		function formatList(){
+			foreach($this->anagrams as $key => $gram){
+				$this->anagrams[$key] = $this->formatWord($gram);
+			}
+			return $this->anagrams;
+		}
+
 
 		// function checkForAnagrams($word){
 		// $grams = $new_anagram->getAnagram();

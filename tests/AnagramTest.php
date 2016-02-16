@@ -5,16 +5,28 @@
 	class AnagramTest extends PHPUnit_Framework_TestCase
 	{
 
-		function test_sortUserWord_oneWord()
+		function test_formatWord_oneWord()
 		{
-		//Arrange
-		$test_Anagram = new Anagram("teacher", 'come on you guys');
+			//Arrange
+			$test_Anagram = new Anagram("teacher", 'come on you guys');
+			$input = "teacher";
+			//Act
+			$result = $test_Anagram->formatWord($input);
 
-		//Act
-		$result = $test_Anagram->sortUserWord($test_Anagram->getWord());
+			//Assert
+			$this->assertEquals('aceehrt', $result);
+		}
 
-		//Assert
-		$this->assertEquals(['a', 'c', 'e', 'e', 'h', 'r', 't'], $result);
+		function test_formatList_oneWord()
+		{
+			//Arrange
+			$test_Anagram = new Anagram("teacher", array('cheater' => 'cheater'));
+
+			//Act
+			$result = $test_Anagram->formatList($test_Anagram->getAnagrams());
+
+			//Assert
+			$this->assertEquals(array('cheater' => 'aceehrt'), $result);
 		}
 	}
 
