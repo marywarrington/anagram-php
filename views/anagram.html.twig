@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <form action="/results" method="post">
+            <label for="word">Enter a word</label>
+            <input type="text" name="word" id='word'>
+            <label for="anagram1">Anagram?</label>
+            <input type="text" name="anagram1" id='anagram1'>
+            <label for="anagram2">Anagram?</label>
+            <input type="text" name="anagram2" id='anagram2'>
+            <label for="anagram3">Anagram?</label>
+            <input type="text" name="anagram3" id='anagram3'>
+            <button type="submit" name="button">SUBMIT</button>
+        </form>
+        <h2>RESULTS ARE ALL THAT MATTERS</h2>
+        <h3>Matches</h3>
+        <ul>
+            {% for match in matches %}
+                <li>{{ match }}</li>
+            {% endfor %}
+        </ul>
+        <h3>FAILS</h3>
+        <ul>
+            {% for fail in fails %}
+                <li>{{ fail }}</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
