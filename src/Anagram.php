@@ -33,7 +33,6 @@
 			return $imploded;
 		}
 
-
 		function formatList(){
 			foreach($this->anagrams as $key => $gram){
 				$this->anagrams[$key] = $this->formatWord($gram);
@@ -41,15 +40,14 @@
 			return $this->anagrams;
 		}
 
+		function checkList(){
+			$word = $this->formatWord($this->word);
+			
+			$listItem = $this->formatList();
+			if ($word == $listItem["cheater"]){
+				return true;
+			} return false;
+		}
 
-		// function checkForAnagrams($word){
-		// $grams = $new_anagram->getAnagram();
-		//
-		// foreach($grams as $key => $gram){
-		// 	$split = str_split($gram);
-		// 	sort($split, SORT_NATURAL | SORT_FLAG_CASE);
-		// 	$imploded = implode($split);
-		// 	$key => $imploded;
-		// }
 	}
  ?>

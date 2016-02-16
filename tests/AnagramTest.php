@@ -40,6 +40,18 @@
 			//Assert
 			$this->assertEquals(array('cheater' => 'aceehrt', 'hectare' => 'aceehrt', 'recheat' => 'aceehrt'), $result);
 		}
+
+		function test_checkList(){
+			//Arrange
+			$test_Anagram = new Anagram("teacher", array("cheater" => "cheater"));
+			//Act
+			// $testWord = $test_Anagram->formatWord($test_Anagram->getWord());
+			// $test_Anagram->formatList($test_Anagram->getAnagrams());
+
+			$result = $test_Anagram->checkList();
+			//Assert
+			$this->assertEquals(true, $result);
+		}
 	}
 
 ?>
