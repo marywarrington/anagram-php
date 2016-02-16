@@ -3,11 +3,13 @@
 		{
 		private $word;
 		private $anagrams;
+		private $failedItems;
 
 		function __construct($word, $anagrams)
 		{
 			$this->word = $word;
 			$this->anagrams = $anagrams;
+			$this->failedItems = array();
 		}
 
 		function getWord(){
@@ -24,6 +26,11 @@
 
 		function setAnagrams($anagrams){
 			$this->anagrams = $anagrams;
+		}
+
+		function getFailedItems()
+		{
+			return $this->failedItems;
 		}
 
 		function formatWord($word) {
@@ -47,6 +54,8 @@
 			foreach ($listItems as $key => $listItem) {
 				if ($word == $listItem){
 					$resultsArray[$key] = $listItem;
+				} else {
+					$this->failedItems[$key] = $listItem;
 				}
 			}
 			return $resultsArray;

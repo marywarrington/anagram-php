@@ -58,6 +58,20 @@
 			//Assert
 			$this->assertEquals(array('cheater' => 'aceehrt', 'hectare' => 'aceehrt'), $result);
 		}
+
+		function test_checkList_failedWords(){
+			//Arrange
+			$test_Anagram = new Anagram("teacher", array('cheater' => 'cheater', 'pumpkin' => 'pumpkin'));
+			//Act
+			$resultSuccess = $test_Anagram->checkList();
+			$resultFail = $test_Anagram->getFailedItems();
+
+			//Assert
+			$this->assertEquals(array('pumpkin' => 'ikmnppu'), $resultFail);
+			$this->assertEquals(array('cheater' => 'aceehrt'), $resultSuccess);
+		}
+
+
 	}
 
 ?>
