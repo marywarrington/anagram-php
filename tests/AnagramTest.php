@@ -47,7 +47,7 @@
 			//Act
 			$result = $test_Anagram->checkList();
 			//Assert
-			$this->assertEquals(true, $result);
+			$this->assertEquals(array('cheater' => 'aceehrt'), $result);
 		}
 
 		function test_checkList_multipleWords(){
