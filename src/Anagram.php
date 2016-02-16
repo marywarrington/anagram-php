@@ -42,11 +42,14 @@
 
 		function checkList(){
 			$word = $this->formatWord($this->word);
-			
-			$listItem = $this->formatList();
-			if ($word == $listItem["cheater"]){
-				return true;
-			} return false;
+			$resultsArray = array();
+			$listItems = $this->formatList();
+			foreach ($listItems as $key => $listItem) {
+				if ($word == $listItem){
+					$resultsArray[$key] = $listItem;
+				}
+			}
+			return $resultsArray;
 		}
 
 	}
